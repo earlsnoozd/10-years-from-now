@@ -50,15 +50,16 @@ export default function Navigation({ activeSection, onSectionClick }: Navigation
       style={{ opacity: navOpacity }}
       data-testid="navigation-main"
     >
-      <div className="backdrop-blur-md bg-white/10 border-b border-cosmic-silver/20">
+      <div className="backdrop-blur-md bg-white/10 border-b border-white/20 shadow-lg">
         <div className="max-w-4xl mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <button 
               onClick={() => handleSectionClick('hero')}
-              className="text-sm font-medium text-foreground hover:text-cosmic-deep-blue transition-colors"
+              className="text-lg font-medium text-white hover:text-cosmic-space-blue transition-all duration-300 relative group"
               data-testid="link-home"
             >
-              Future Vision
+              Jairus Earl S. Baquiran
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cosmic-space-blue transition-all duration-300 group-hover:w-full"></span>
             </button>
             
             <div className="hidden md:flex items-center space-x-8">
@@ -66,14 +67,17 @@ export default function Navigation({ activeSection, onSectionClick }: Navigation
                 <button
                   key={section.id}
                   onClick={() => handleSectionClick(section.id)}
-                  className={`text-sm font-medium transition-colors tracking-wide ${
+                  className={`text-sm font-medium transition-all duration-300 tracking-wide relative group ${
                     activeSection === section.id
-                      ? 'text-cosmic-deep-blue'
-                      : 'text-foreground/70 hover:text-foreground'
+                      ? 'text-cosmic-space-blue'
+                      : 'text-white/80 hover:text-white'
                   }`}
                   data-testid={`link-${section.id}`}
                 >
                   {section.label}
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-cosmic-space-blue transition-all duration-300 ${
+                    activeSection === section.id ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}></span>
                 </button>
               ))}
             </div>
@@ -82,7 +86,7 @@ export default function Navigation({ activeSection, onSectionClick }: Navigation
               variant="outline" 
               size="sm"
               onClick={() => console.log('Theme toggle clicked')}
-              className="backdrop-blur-sm bg-white/20 border-cosmic-silver/30 hover-elevate"
+              className="backdrop-blur-sm bg-white/10 border-white/30 text-white hover:bg-white/20 transition-all duration-300 hover-elevate"
               data-testid="button-theme-toggle"
             >
               ✦

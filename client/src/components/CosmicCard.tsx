@@ -26,11 +26,11 @@ export default function CosmicCard({
   const getCardClasses = () => {
     switch (variant) {
       case 'dark':
-        return 'bg-cosmic-infinite-black/90 border-cosmic-silver/20 text-white backdrop-blur-sm';
+        return 'bg-cosmic-infinite-black/90 border-cosmic-silver/20 text-white backdrop-blur-sm shadow-2xl hover:shadow-cosmic-space-blue/20';
       case 'gradient':
-        return 'bg-gradient-to-br from-cosmic-deep-blue/20 to-cosmic-starlight-purple/20 border-cosmic-silver/30 backdrop-blur-sm';
+        return 'bg-gradient-to-br from-cosmic-space-blue/20 to-cosmic-cosmic-purple/20 border-cosmic-silver/30 backdrop-blur-sm shadow-xl hover:shadow-cosmic-cosmic-purple/20';
       default:
-        return 'bg-white/95 border-cosmic-silver/30 backdrop-blur-sm';
+        return 'bg-white/95 border-cosmic-silver/30 backdrop-blur-sm shadow-lg hover:shadow-xl hover:shadow-cosmic-space-blue/10';
     }
   };
 
@@ -41,8 +41,13 @@ export default function CosmicCard({
 
   return (
     <Card 
-      className={`${getCardClasses()} hover-elevate transition-all duration-500 group ${className}`}
+      className={`${getCardClasses()} hover-elevate transition-all duration-500 group rounded-xl hover:scale-105 hover:glow ${className}`}
       data-testid={`card-${title.toLowerCase().replace(/\s+/g, '-')}`}
+      style={{
+        background: variant === 'gradient' 
+          ? 'linear-gradient(135deg, rgba(10, 132, 255, 0.1) 0%, rgba(110, 52, 245, 0.1) 100%)'
+          : undefined
+      }}
     >
       <div className="p-8">
         {/* Icon and Title */}
@@ -58,7 +63,7 @@ export default function CosmicCard({
             <h3 
               className={`text-2xl font-semibold mb-3 ${
                 variant === 'dark' ? 'text-white' : 'text-cosmic-infinite-black'
-              }`}
+              } group-hover:text-cosmic-space-blue transition-colors duration-300`}
               data-testid={`text-${title.toLowerCase().replace(/\s+/g, '-')}-title`}
             >
               {title}

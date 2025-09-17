@@ -34,13 +34,13 @@ export default function CareerVisionSection() {
           </p>
         </AnimatedSection>
 
-        {/* Career Cards Grid */}
+        {/* Career Cards Grid with Slide Animations */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatedSection animationType="fade-up" delay={200}>
+          <div className="animate-slide-in-left" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             <CosmicCard
               title="Tech Leadership"
               description="Leading cross-functional teams to build products that shape the future of human-computer interaction."
-              icon={<Target className="w-6 h-6 text-cosmic-deep-blue" />}
+              icon={<Target className="w-6 h-6 text-cosmic-space-blue" />}
               features={[
                 "Chief Technology Officer role",
                 "Team of 50+ engineers", 
@@ -51,13 +51,13 @@ export default function CareerVisionSection() {
               actionLabel="Explore Path"
               onActionClick={() => handleCardClick('Leadership')}
             />
-          </AnimatedSection>
+          </div>
 
-          <AnimatedSection animationType="fade-up" delay={400}>
+          <div className="animate-slide-in-right" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
             <CosmicCard
               title="Innovation Hub"
               description="Founding and scaling a technology company that solves complex challenges through elegant solutions."
-              icon={<Rocket className="w-6 h-6 text-cosmic-deep-blue" />}
+              icon={<Rocket className="w-6 h-6 text-cosmic-cosmic-purple" />}
               features={[
                 "B2B SaaS platform",
                 "AI-powered solutions",
@@ -68,13 +68,13 @@ export default function CareerVisionSection() {
               actionLabel="View Strategy"
               onActionClick={() => handleCardClick('Innovation')}
             />
-          </AnimatedSection>
+          </div>
 
-          <AnimatedSection animationType="fade-up" delay={600} className="md:col-span-2 lg:col-span-1">
+          <div className="animate-slide-in-left md:col-span-2 lg:col-span-1" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
             <CosmicCard
               title="Industry Impact"
               description="Establishing thought leadership and driving industry standards that benefit millions of users worldwide."
-              icon={<Zap className="w-6 h-6 text-cosmic-deep-blue" />}
+              icon={<Zap className="w-6 h-6 text-cosmic-space-blue" />}
               features={[
                 "Conference keynote speaker",
                 "Published research papers",
@@ -85,7 +85,7 @@ export default function CareerVisionSection() {
               actionLabel="Read More"
               onActionClick={() => handleCardClick('Impact')}
             />
-          </AnimatedSection>
+          </div>
         </div>
 
         {/* Vision Statement */}
@@ -98,7 +98,7 @@ export default function CareerVisionSection() {
               "By 2034, I envision myself at the intersection of technology and humanity, 
               leading teams that build products which don't just serve users, but elevate human potential."
             </blockquote>
-            <div className="mt-6 w-16 h-0.5 bg-cosmic-deep-blue mx-auto"></div>
+            <div className="mt-6 w-16 h-0.5 bg-gradient-to-r from-cosmic-space-blue to-cosmic-cosmic-purple mx-auto"></div>
           </div>
         </AnimatedSection>
       </div>

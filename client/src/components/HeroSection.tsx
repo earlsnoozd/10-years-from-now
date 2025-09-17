@@ -37,17 +37,21 @@ export default function HeroSection() {
       {/* Subtle overlay for better text readability */}
       <div className="absolute inset-0 bg-black/20" />
 
-      {/* Stars/particles effect */}
-      <div className="absolute inset-0 opacity-30">
-        {[...Array(50)].map((_, i) => (
+      {/* Enhanced particles effect */}
+      <div className="absolute inset-0 opacity-40">
+        {[...Array(80)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+            className={`absolute rounded-full animate-float ${
+              i % 3 === 0 ? 'w-2 h-2 bg-cosmic-space-blue/60' :
+              i % 3 === 1 ? 'w-1.5 h-1.5 bg-cosmic-cosmic-purple/60' :
+              'w-1 h-1 bg-white/80'
+            }`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${4 + Math.random() * 4}s`,
             }}
           />
         ))}
@@ -57,23 +61,30 @@ export default function HeroSection() {
       <div className="relative z-10 text-center px-8 max-w-4xl mx-auto">
         <AnimatedSection animationType="fade-up">
           <h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 tracking-tight leading-tight"
             data-testid="text-hero-title"
           >
-            My Life in{' '}
-            <span className="font-semibold bg-gradient-to-r from-white to-cosmic-silver bg-clip-text text-transparent">
-              10 Years
+            I'm{' '}
+            <span className="font-semibold bg-gradient-to-r from-cosmic-space-blue to-cosmic-cosmic-purple bg-clip-text text-transparent">
+              Jairus Earl S. Baquiran
+            </span>
+            <br />
+            <span className="text-3xl md:text-4xl lg:text-5xl mt-4 block">
+              This is My Life in{' '}
+              <span className="font-semibold bg-gradient-to-r from-white to-cosmic-silver bg-clip-text text-transparent">
+                10 Years
+              </span>
             </span>
           </h1>
         </AnimatedSection>
 
         <AnimatedSection animationType="fade-up" delay={300}>
           <p 
-            className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed font-light"
+            className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed font-light max-w-3xl mx-auto"
             data-testid="text-hero-subtitle"
           >
-            A journey into the future where ambition meets possibility,<br />
-            and dreams transform into reality.
+            A visionary journey where innovation meets purpose, technology serves humanity, 
+            and every day brings new opportunities to shape tomorrow.
           </p>
         </AnimatedSection>
 

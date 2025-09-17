@@ -14,11 +14,11 @@ export default {
         // Flat / base colors (regular buttons)
         background: "hsl(var(--background) / <alpha-value>)",
         foreground: "hsl(var(--foreground) / <alpha-value>)",
-        // Cosmic color palette for futuristic blog
+        // Futuristic color palette for Jairus's blog
         cosmic: {
-          silver: "hsl(210 15% 85%)",
-          "deep-blue": "hsl(220 85% 15%)",
-          "starlight-purple": "hsl(270 65% 25%)",
+          silver: "#d2d2d7",
+          "space-blue": "#0a84ff",
+          "cosmic-purple": "#6e34f5",
           "infinite-black": "hsl(0 0% 5%)",
           "soft-overlay": "hsl(210 25% 95%)",
         },
@@ -91,16 +91,51 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Inter", "var(--font-sans)"],
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Helvetica Neue", "var(--font-sans)"],
         serif: ["Inter", "var(--font-serif)"],
         mono: ["var(--font-mono)"],
       },
       backgroundImage: {
-        'cosmic-gradient': 'linear-gradient(135deg, hsl(220 85% 15%) 0%, hsl(270 65% 25%) 50%, hsl(0 0% 5%) 100%)',
-        'hero-gradient': 'linear-gradient(180deg, hsl(220 85% 15%) 0%, hsl(270 65% 25%) 70%, hsl(0 0% 5%) 100%)',
+        'cosmic-gradient': 'linear-gradient(135deg, #0a84ff 0%, #6e34f5 50%, hsl(0 0% 5%) 100%)',
+        'hero-gradient': 'linear-gradient(180deg, #0a84ff 0%, #6e34f5 70%, hsl(0 0% 5%) 100%)',
         'soft-gradient': 'linear-gradient(135deg, hsl(210 25% 95%) 0%, transparent 100%)',
+        'starfield': 'radial-gradient(2px 2px at 20px 30px, #eee, transparent), radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.4), transparent), radial-gradient(1px 1px at 90px 40px, #fff, transparent)',
+      },
+      backdropBlur: {
+        xs: '2px',
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'typing': 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite',
+        'slide-in-left': 'slideInLeft 0.6s ease-out',
+        'slide-in-right': 'slideInRight 0.6s ease-out',
+        'rotate-3d': 'rotate3d 10s linear infinite',
       },
       keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        typing: {
+          'from': { width: '0' },
+          'to': { width: '100%' },
+        },
+        'blink-caret': {
+          'from, to': { 'border-color': 'transparent' },
+          '50%': { 'border-color': '#0a84ff' },
+        },
+        slideInLeft: {
+          'from': { transform: 'translateX(-100%)', opacity: '0' },
+          'to': { transform: 'translateX(0)', opacity: '1' },
+        },
+        slideInRight: {
+          'from': { transform: 'translateX(100%)', opacity: '0' },
+          'to': { transform: 'translateX(0)', opacity: '1' },
+        },
+        rotate3d: {
+          '0%': { transform: 'rotateY(0deg) rotateX(0deg)' },
+          '100%': { transform: 'rotateY(360deg) rotateX(360deg)' },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -109,10 +144,6 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },

@@ -21,29 +21,46 @@ export default function ClosingSection() {
       className="relative py-24 px-8 overflow-hidden"
       data-testid="section-closing"
     >
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-cosmic-soft-overlay to-cosmic-deep-blue/20" />
+      {/* Fading Starfield Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-cosmic-soft-overlay to-cosmic-infinite-black opacity-90" />
+      <div className="absolute inset-0 bg-starfield opacity-20 animate-pulse" />
       
-      {/* Secondary cosmic gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cosmic-starlight-purple/5 to-cosmic-infinite-black/10" />
+      {/* Enhanced starfield overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cosmic-cosmic-purple/5 to-cosmic-infinite-black/10" />
+      
+      {/* Animated stars */}
+      <div className="absolute inset-0">
+        {[...Array(30)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 3}s`,
+            }}
+          />
+        ))}
+      </div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        {/* Main Closing Message */}
+        {/* Main Closing Message with Typing Effect */}
         <AnimatedSection animationType="fade-up">
-          <h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-light text-cosmic-infinite-black mb-8 tracking-tight leading-tight"
-            data-testid="text-closing-title"
-          >
-            The Journey{' '}
-            <span className="font-semibold bg-gradient-to-r from-cosmic-deep-blue to-cosmic-starlight-purple bg-clip-text text-transparent">
-              Begins Now
-            </span>
-          </h2>
+          <div className="mb-8">
+            <h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 tracking-tight leading-tight overflow-hidden whitespace-nowrap border-r-4 border-cosmic-space-blue animate-typing"
+              data-testid="text-closing-title"
+              style={{ width: 'fit-content', margin: '0 auto' }}
+            >
+              The Journey Begins Now
+            </h2>
+          </div>
         </AnimatedSection>
 
         <AnimatedSection animationType="fade-up" delay={300}>
           <p 
-            className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-12 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-white/90 leading-relaxed mb-12 max-w-3xl mx-auto"
             data-testid="text-closing-message"
           >
             This vision isn't just a dream—it's a roadmap. Every day brings new opportunities 
@@ -58,7 +75,7 @@ export default function ClosingSection() {
             <Button
               size="lg"
               onClick={handleConnectClick}
-              className="bg-cosmic-deep-blue hover:bg-cosmic-deep-blue/90 text-white px-8 py-4 text-lg font-medium group hover-elevate"
+              className="bg-cosmic-space-blue hover:bg-cosmic-space-blue/90 text-white px-8 py-4 text-lg font-medium group hover-elevate shadow-lg hover:shadow-cosmic-space-blue/40"
               data-testid="button-connect"
             >
               <Mail className="w-5 h-5 mr-2" />
@@ -70,7 +87,7 @@ export default function ClosingSection() {
               size="lg"
               variant="outline"
               onClick={handleScheduleClick}
-              className="border-cosmic-deep-blue text-cosmic-deep-blue hover:bg-cosmic-deep-blue/10 px-8 py-4 text-lg font-medium hover-elevate"
+              className="border-cosmic-cosmic-purple text-cosmic-cosmic-purple hover:bg-cosmic-cosmic-purple/10 px-8 py-4 text-lg font-medium hover-elevate shadow-lg"
               data-testid="button-schedule"
             >
               <Calendar className="w-5 h-5 mr-2" />
@@ -99,12 +116,12 @@ export default function ClosingSection() {
               <input 
                 type="email" 
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-md border border-cosmic-silver/40 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-cosmic-deep-blue/20 focus:border-cosmic-deep-blue transition-all duration-200"
+                className="flex-1 px-4 py-3 rounded-md border border-cosmic-silver/40 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-cosmic-space-blue/20 focus:border-cosmic-space-blue transition-all duration-200"
                 data-testid="input-email"
               />
               <Button
                 onClick={handleNewsletterClick}
-                className="bg-cosmic-deep-blue hover:bg-cosmic-deep-blue/90 text-white px-6 py-3 hover-elevate"
+                className="bg-cosmic-space-blue hover:bg-cosmic-space-blue/90 text-white px-6 py-3 hover-elevate shadow-lg"
                 data-testid="button-newsletter"
               >
                 Subscribe

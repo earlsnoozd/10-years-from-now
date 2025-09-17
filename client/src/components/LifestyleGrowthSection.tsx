@@ -67,25 +67,27 @@ export default function LifestyleGrowthSection() {
               className="group"
             >
               <div className="text-center md:text-left">
-                {/* Icon */}
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-cosmic-soft-overlay rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                {/* Floating Icon */}
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cosmic-space-blue/10 to-cosmic-cosmic-purple/10 rounded-full mb-6 group-hover:scale-110 transition-all duration-500 animate-float shadow-lg hover:shadow-cosmic-space-blue/20" style={{ animationDelay: `${index * 0.5}s` }}>
                   {area.icon}
                 </div>
 
                 {/* Content */}
-                <h3 
-                  className="text-2xl font-semibold text-cosmic-infinite-black mb-4"
-                  data-testid={`text-${area.title.toLowerCase().replace(/\s+/g, '-')}-title`}
-                >
-                  {area.title}
-                </h3>
+                <div className="transform transition-all duration-500 group-hover:translate-y-[-4px]">
+                  <h3 
+                    className="text-2xl font-semibold text-cosmic-infinite-black mb-4 group-hover:text-cosmic-space-blue transition-colors duration-300"
+                    data-testid={`text-${area.title.toLowerCase().replace(/\s+/g, '-')}-title`}
+                  >
+                    {area.title}
+                  </h3>
 
-                <p 
-                  className="text-muted-foreground leading-relaxed mb-6 text-lg"
-                  data-testid={`text-${area.title.toLowerCase().replace(/\s+/g, '-')}-description`}
-                >
-                  {area.description}
-                </p>
+                  <p 
+                    className="text-muted-foreground leading-relaxed mb-6 text-lg"
+                    data-testid={`text-${area.title.toLowerCase().replace(/\s+/g, '-')}-description`}
+                  >
+                    {area.description}
+                  </p>
+                </div>
 
                 {/* Goals */}
                 <div className="space-y-3">
@@ -93,10 +95,10 @@ export default function LifestyleGrowthSection() {
                     <button
                       key={goalIndex}
                       onClick={() => handleGoalClick(area.title, goal)}
-                      className="flex items-center gap-3 text-left hover:text-cosmic-deep-blue transition-colors duration-200 group/goal"
+                      className="flex items-center gap-3 text-left hover:text-cosmic-space-blue transition-colors duration-200 group/goal"
                       data-testid={`button-goal-${goalIndex}`}
                     >
-                      <div className="w-2 h-2 rounded-full bg-cosmic-silver group-hover/goal:bg-cosmic-deep-blue transition-colors duration-200 flex-shrink-0"></div>
+                      <div className="w-2 h-2 rounded-full bg-cosmic-silver group-hover/goal:bg-cosmic-space-blue transition-colors duration-200 flex-shrink-0"></div>
                       <span className="text-sm font-medium group-hover/goal:translate-x-1 transition-transform duration-200">
                         {goal}
                       </span>
