@@ -65,7 +65,7 @@ export default function HeroSection() {
             data-testid="text-hero-title"
           >
             I'm{' '}
-            <span className="font-semibold bg-gradient-to-r from-black to-gray-800 bg-clip-text text-transparent">
+            <span className="font-semibold bg-gradient-to-r from-black via-gray-700 to-gray-300 bg-clip-text text-transparent">
               Jairus Earl S. Baquiran
             </span>
             <br />
